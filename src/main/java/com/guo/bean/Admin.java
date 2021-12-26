@@ -6,7 +6,7 @@ public class Admin {
     private String adminPassword;
 
     public Admin() {}
-//ss
+
     public Admin(String adminId, String adminName, String adminPassword) {
         this.adminId = adminId;
         this.adminName = adminName;
