@@ -1,0 +1,29 @@
+server:
+  port: 8088
+
+#put和delete请求
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/book?serverTimezone=UTC
+    username: root
+    password: 121323
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  resources:
+    static-locations: classpath:/
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+#pagehelper:
+#  helperDialect: mysql
+#  reasonable: true
+#  supportMethodsArguments: true
+#  params: count=countSql
+#  returnPageInfo: check

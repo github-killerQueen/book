@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guo.mapper.BorrowMapper">
+    <select id="selectByBookId" resultType="com.guo.bean.Borrow">
+        SELECT bw.book_id, bk.book_name, bw.stu_id, st.stu_name, bw.borrow_date, bw.return_date
+        FROM tbl_borrow bw,tbl_book bk,tbl_student st
+        where bw.book_id = #{bookId} and bw.stu_id = st.stu_id and bw.book_id = bk.book_id
+    </select>
+    <select id="selectByStudentId" resultType="com.guo.bean.Borrow">
+        SELECT bw.book_id, bk.book_name, bw.stu_id, st.stu_name, bw.borrow_date, bw.return_date
+        FROM tbl_borrow bw,tbl_book bk,tbl_student st
+        where st.stu_id = #{stuId} and bw.stu_id = st.stu_id and bw.book_id = bk.book_id
+    </select>
+    <select id="selectAll" resultType="com.guo.bean.Borrow">
+        SELECT bw.book_id, bk.book_name, bw.stu_id, st.stu_name, bw.borrow_date, bw.return_date
+        FROM tbl_borrow bw,tbl_book bk,tbl_student st
+        where bw.stu_id = st.stu_id and bw.book_id = bk.book_id
+    </select>
+    <update id="updateBorrow">
+        update tbl_borrow
+        set borrow_date = #{borrowDate}, return_date = #{returnDate}
+        where book_id = #{bookId}
+    </update>
+    <insert id="insertBorrow">
+        insert into tbl_borrow(book_id,stu_id,borrow_date,return_date)
+        values (#{bookId}, #{stuId}, #{borrowDate}, #{returnDate})
+    </insert>
+    <delete id="deleteBorrow">
+        delete from tbl_borrow
+        where book_id = #{bookId}
+    </delete>
+</mapper>

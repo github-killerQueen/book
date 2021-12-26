@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>管理员登录</title>
+    <link href="/static/css/login.css" rel="stylesheet">
+</head>
+<body>
+<style type="text/css">
+    body {
+        background-image: url(../static/img/background.jpg);
+        background-size: 100%;
+    }
+</style>
+<div class="wrap" id="div">
+    <form method="post" th:action="@{/adminLogin}">
+        <div class="logGet">
+            <div class="logB">
+                <p class="p1">管理员登录</p>
+                <p class="p2" align="right">
+                    <a th:href="@{/}" class="p2">学生登录</a>
+                </p><br>
+                <label style="color: red" th:text="${info}"></label>
+                <p class="p2">账号：</p>
+                <input name="adminId" type="text" placeholder="输入账号"/>
+            </div>
+            <div class="logB">
+                <p class="p2">密码：</p>
+                <input name="adminPassword" type="password" placeholder="输入密码"/>
+            </div>
+            <div class="logA">
+                <button id="submit" type="submit" class="btn">登录</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+

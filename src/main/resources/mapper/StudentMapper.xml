@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guo.mapper.StudentMapper">
+<!--    <resultMap id="BaseResultMap" type="com.guo.bean.Student">-->
+<!--        <id column="stu_id" jdbcType="VARCHAR" property="stuId" />-->
+<!--        <result column="stu_name" jdbcType="VARCHAR" property="stuName" />-->
+<!--        <result column="gender" jdbcType="VARCHAR" property="gender" />-->
+<!--        <result column="stu_password" jdbcType="VARCHAR" property="stuPassword" />-->
+<!--        <result column="phone" jdbcType="VARCHAR" property="phone" />-->
+<!--        <result column="depart" jdbcType="VARCHAR" property="depart" />-->
+<!--    </resultMap>-->
+<!--    <sql id="Base_Column_List">-->
+<!--        stu_id,stu_name,gender,stu_password,phone,depart-->
+<!--    </sql>-->
+    <select id="selectById" parameterType="java.lang.Integer" resultType="com.guo.bean.Student">
+        select
+        stu_id,stu_name,gender,phone,borrow_count,stu_password
+        from tbl_student
+        where stu_id = #{stuId}
+    </select>
+    <select id="selectAll" resultType="com.guo.bean.Student">
+        select
+        stu_id,stu_name,gender,phone,borrow_count,stu_password
+        from tbl_student
+    </select>
+    <insert id="insertStudent">
+        insert into tbl_student(stu_name,gender,phone,borrow_count) values (#{stuName},#{gender},#{phone},#{borrowCount})
+    </insert>
+    <update id="updateStudent">
+        update tbl_student set stu_name = #{stuName},gender = #{gender},phone = #{phone},borrow_count = #{borrowCount}
+        where stu_id = #{stuId}
+    </update>
+    <delete id="deleteStudent">
+        delete from tbl_student where stu_id = #{stuId}
+    </delete>
+    <update id="updateStudentCountAdd">
+        update tbl_student set borrow_count = borrow_count+1
+        where stu_id = #{stuId}
+    </update>
+    <update id="updateStudentCountReduce">
+        update tbl_student set borrow_count = borrow_count-1
+        where stu_id = #{stuId}
+    </update>
+</mapper>

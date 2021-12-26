@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guo.mapper.BookMapper">
+    <select id="selectById" resultType="com.guo.bean.Book">
+        select book_id,book_name,author,press,status
+        from tbl_book
+        where book_id = #{bookId}
+    </select>
+    <select id="selectAll" resultType="com.guo.bean.Book">
+        select book_id,book_name,author,press,status
+        from tbl_book
+    </select>
+    <select id="selectByBorrowStudentId" resultType="com.guo.bean.Book">
+        select bk.book_id,bk.book_name,bk.author,bk.press
+        from tbl_book bk,tbl_borrow bw
+        where bk.book_id = bw.book_id and bw.stu_id = #{stuId}
+    </select>
+    <insert id="insertBook">
+        insert into tbl_book(book_name,author,press,status)
+        values (#{bookName},#{author},#{press},#{status})
+    </insert>
+    <update id="updateBook">
+        update tbl_book
+        set book_name = #{bookName},author = #{author},press = #{press},status = #{status}
+        where book_id = #{bookId}
+    </update>
+    <delete id="deleteBook">
+        delete from tbl_book
+        where book_id = #{bookId}
+    </delete>
+    <update id="updateBookStatus">
+        update tbl_book
+        set status = #{status}
+        where book_id = #{bookId}
+    </update>
+</mapper>

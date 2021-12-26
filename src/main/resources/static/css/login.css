@@ -1,0 +1,48 @@
+
+*{
+  margin: 0;
+  padding: 0;
+}
+.wrap .logGet {
+  height: 360px;
+  width: 360px;
+  position: absolute;
+  top: 25%;
+  left:38%;
+}
+.btn {
+  width: 100%;
+  height: 45px;
+  background-color: #ee7700;
+  border: none;
+  color: white;
+  font-size: 18px;
+}
+.logGet .logB input {
+  width: 100%;
+  height: 43px;
+  text-indent: 2.5rem;
+}
+.wrap .logGet .logB{
+  width: 85%;
+  position: relative;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.wrap .logGet .logA {
+  width: 86%;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+}
+.p1 {
+  font-size: 30px;
+  color: white;
+}
+.p2 {
+  font-size: 17px;
+  color: white;
+}
